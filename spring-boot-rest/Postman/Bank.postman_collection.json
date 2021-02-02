@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "a52d631a-dc8b-4826-9b56-7e777e2b8630",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getBalanceId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spring-boot-rest/abc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring-boot-rest",
+						"abc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get txs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/spring-boot-rest/abc/WITHDRAW?fromDate=2018-05-11T11:27:50.000 UTC&toDate=2021-05-11T11:27:50.000 UTC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring-boot-rest",
+						"abc",
+						"WITHDRAW"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2018-05-11T11:27:50.000 UTC"
+						},
+						{
+							"key": "toDate",
+							"value": "2021-05-11T11:27:50.000 UTC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post balance",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"accountNumber\": \"abc\", \"lastUpdateTimestamp\": \"2020-01-01T01:02:03.8Z\", \"balance\": 89.1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/spring-boot-rest/balances/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring-boot-rest",
+						"balances",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post tx",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"accountNumber\": \"abc\", \"transactionTs\": \"2020-01-01T01:02:03.8Z\", \"type\":\"WITHDRAW\", \"amount\": 80.1}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/spring-boot-rest/transactions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring-boot-rest",
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

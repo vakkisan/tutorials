@@ -1,26 +1,70 @@
-## Spring Boot REST
+## Responsibilities
 
-This module contains articles about Spring Boot RESTful APIs.
+## Dependencies
 
-### Relevant Articles
+### Resource dependencies
+- Postgres
+- Kafka (and Zookeeper)
 
-- [Versioning a REST API](https://www.baeldung.com/rest-versioning)
 
-### E-book
+## How To
 
-These articles are part of the Spring REST E-book:
+#### Profiles
+We declare several convenient profiles for everyday tasks:
+* `deploy` - deploys api + client modules to nexus
+* `docker` - builds docker image using jib maven plugin
+*  `docker-push` - is a ~~secret~~ implicitly activated profile intended to build and push docker image to remote repo by passing `-Ddocker.registry.base` argument
+* `default` - does clean install and runs tests (intended for local development)
+* `test` - does testing via maven clean test
 
-1. [Bootstrap a Web Application with Spring 5](https://www.baeldung.com/bootstraping-a-web-application-with-spring-and-java-based-configuration)
-2. [Build a REST API with Spring and Java Config](https://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration)
-3. [Http Message Converters with the Spring Framework](https://www.baeldung.com/spring-httpmessageconverter-rest)
-4. [Spring’s RequestBody and ResponseBody Annotations](https://www.baeldung.com/spring-request-response-body)
-5. [Entity To DTO Conversion for a Spring REST API](https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application)
-6. [Error Handling for REST with Spring](https://www.baeldung.com/exception-handling-for-rest-with-spring)
-7. [REST API Discoverability and HATEOAS](https://www.baeldung.com/restful-web-service-discoverability)
-8. [An Intro to Spring HATEOAS](https://www.baeldung.com/spring-hateoas-tutorial)
-9. [REST Pagination in Spring](https://www.baeldung.com/rest-api-pagination-in-spring)
-10. [Test a REST API with Java](https://www.baeldung.com/integration-testing-a-rest-api)
-11. [HATEOAS for a Spring REST Service](https://www.baeldung.com/rest-api-discoverability-with-spring)
+### Build and run only UTs
+Compiles, runs unit tests and generates Jacoco report
+```bash
+./mvnw -pl api,service clean verify
+```
 
-NOTE:
-Since this is a module tied to an e-book, it should not be moved or used to store the code for any further article. 
+### Build and run
+Local docker image should be build to pass integration tests
+```bash
+./mvnw -P test
+```
+
+### Build local Docker image
+```bash
+./mvnw -P docker
+```
+
+### Deploy Docker image to remote
+```bash
+
+```
+```
+### Use Docker composer files
+Check `./docker-compose` folder:
+- docker-compose.yml (all services and their dependencies)
+ 
+
+### Start account service, kafka and consul in docker-compose
+- go to `./docker-compose`
+- run `docker-compose up`
+
+### Manual testing with postman
+- import `./postman/*.json` into postman
+- try out list of requests
+- hostname is `localhost:`
+
+### Run locally
+Use VM options to run locally
+
+```
+-Dspring.profiles.active=local
+-Dflowable.database-schema-update=true
+-Dserver.port=8080
+
+```
+```
+
+### Set/Override configuration
+| Environment Variable Name | Description | Example/Default |
+| --------- | ----------- | --------------- |
+
