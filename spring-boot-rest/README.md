@@ -13,9 +13,6 @@
 We declare several convenient profiles for everyday tasks:
 * `deploy` - deploys api + client modules to nexus
 * `docker` - builds docker image using jib maven plugin
-*  `docker-push` - is a ~~secret~~ implicitly activated profile intended to build and push docker image to remote repo by passing `-Ddocker.registry.base` argument
-* `default` - does clean install and runs tests (intended for local development)
-* `test` - does testing via maven clean test
 
 ### Build and run only UTs
 Compiles, runs unit tests and generates Jacoco report
