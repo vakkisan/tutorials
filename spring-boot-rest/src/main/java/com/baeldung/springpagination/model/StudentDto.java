@@ -1,8 +1,6 @@
 package com.baeldung.springpagination.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +10,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BalanceDto implements Serializable {
+public class StudentDto implements Serializable {
   static final long serialVersionUID = 1L;
 
-  String accountNumber;
+  String studentName;
 
-  Calendar lastUpdateTimestamp;
+  AddressDto addressDto;
   
-  Double balance;
+  String phoneNumber;
 
 }

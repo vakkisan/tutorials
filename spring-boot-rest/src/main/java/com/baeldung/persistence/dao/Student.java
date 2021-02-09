@@ -1,9 +1,9 @@
 package com.baeldung.persistence.dao;
 
-import java.util.Calendar;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import com.baeldung.springpagination.model.AddressDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,12 +15,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Balance {
+public class Student {
 	@Id
-	private String accountNumber;
+	String studentName;
 
-	private Calendar lastUpdateTimestamp;
+	AddressDto addressDto;
 
-	private Double balance;
+	String phoneNumber;
 
 }
