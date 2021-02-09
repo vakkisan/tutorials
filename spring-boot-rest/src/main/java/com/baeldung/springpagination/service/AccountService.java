@@ -3,8 +3,6 @@ package com.baeldung.springpagination.service;
 import com.baeldung.persistence.dao.Student;
 import com.baeldung.persistence.dao.StudentDao;
 import com.baeldung.springpagination.model.StudentDto;
-import com.deere.component.literals.ComponentLiterals;
-import com.deere.jdcp.interceptors.ResponseInfo;
 
 import java.util.Objects;
 import java.util.Optional;
